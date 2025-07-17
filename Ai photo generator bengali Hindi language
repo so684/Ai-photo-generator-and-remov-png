@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Photo Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌟 AI Photo Generator 🌟</h1>
+    <p>বাংলা / हिंदी / English - যে ভাষায় খুশি লেখো!</p>
+    <textarea id="prompt" rows="4" placeholder="Describe your image... (Ex: পাহাড়ে দাঁড়িয়ে থাকা একটি মেয়ে, সূর্যাস্তের আলোতে)"></textarea>
+    <button onclick="generateImage()">Generate Image</button>
+    <div id="imageContainer"></div>
+    <div class="footer">
+      Developed by ❤️ You | Powered by AI Demo
+    </div>
+  </div>  <script>
+    function generateImage() {
+      const prompt = document.getElementById("prompt").value;
+      const image = document.createElement("img");
+      const seed = Math.floor(Math.random() * 1000);
+      image.src = `https://source.unsplash.com/600x400/?${encodeURIComponent(prompt)}&sig=${seed}`;
+
+      const container = document.getElementById("imageContainer");
+      container.innerHTML = "";
+      container.appendChild(image);
+    }
+  </script></body>
+</html>
